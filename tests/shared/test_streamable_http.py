@@ -1242,8 +1242,8 @@ async def test_streamable_http_client_session_termination_status_handling(
     )
 
     with caplog.at_level(logging.WARNING, logger="mcp.client.streamable_http"):
-        async with httpx_client:
-            async with streamable_http_client(f"{BASE_URL}/mcp", http_client=httpx_client) as (
+        async with httpx_client:  # pragma: no branch
+            async with streamable_http_client(f"{BASE_URL}/mcp", http_client=httpx_client) as (  # pragma: no branch
                 read_stream,
                 write_stream,
             ):
